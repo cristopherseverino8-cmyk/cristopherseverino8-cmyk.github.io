@@ -48,23 +48,21 @@
       margin: 0;
     }
 
-    nav {
-      position: relative;
-    }
-    nav ul {
+    /* Menú normal (escritorio) */
+    nav ul.main-menu {
       list-style: none;
       display: flex;
       gap: 25px;
       margin: 0;
       padding: 0;
     }
-    nav ul li a {
+    nav ul.main-menu li a {
       text-decoration: none;
       color: #dcdde1;
       font-weight: 500;
       transition: 0.3s;
     }
-    nav ul li a:hover {
+    nav ul.main-menu li a:hover {
       color: #00b4d8;
       text-shadow: 0 0 6px rgba(0,168,255,0.7);
     }
@@ -77,32 +75,49 @@
       cursor: pointer;
       background: none;
       border: none;
+      z-index: 1100;
     }
 
-    /* Modo móvil */
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: #012639;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        padding: 10px 0;
-      }
-      nav ul li {
-        text-align: center;
-        margin: 10px 0;
-      }
-      nav ul.active {
-        display: flex;
-      }
-      .menu-toggle {
-        display: block;
-      }
+    /* Menú lateral (móvil/tablet) */
+    nav ul.side-menu {
+      list-style: none;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 240px;
+      height: 100vh;
+      background: #012639;
+      padding-top: 70px;
+      transition: right 0.3s ease-in-out;
+      box-shadow: -4px 0 12px rgba(0,0,0,0.3);
+      margin: 0;
+      padding-left: 0;
+    }
+    nav ul.side-menu.active {
+      right: 0;
+    }
+    nav ul.side-menu li {
+      margin: 15px 0;
+      text-align: center;
+    }
+    nav ul.side-menu li a {
+      display: block;
+      padding: 12px 25px;
+      text-decoration: none;
+      color: #dcdde1;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav ul.side-menu li a:hover {
+      color: #00b4d8;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Responsivo */
+    @media (max-width: 900px) {
+      .menu-toggle { display: block; }
+      nav ul.main-menu { display: none; }
     }
 
     /* Contenido principal */
@@ -127,7 +142,7 @@
     .servicios {
       margin: 40px 0;
       display: grid;
-      grid-template-columns: 1fr; /* En móviles → 1 columna */
+      grid-template-columns: 1fr;
       gap: 20px;
     }
     .card {
@@ -152,25 +167,14 @@
       color: #333;
     }
 
-    /* 🔹 Tablets (mínimo 600px) → 2 columnas */
     @media (min-width: 600px) {
-      .servicios {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .servicios { grid-template-columns: repeat(2, 1fr); }
     }
-
-    /* 🔹 Escritorio (mínimo 1024px) → 3 columnas */
     @media (min-width: 1024px) {
-      .servicios {
-        grid-template-columns: repeat(3, 1fr);
-      }
+      .servicios { grid-template-columns: repeat(3, 1fr); }
     }
-
-    /* 🔹 Pantallas grandes (mínimo 1400px) → 4 columnas */
     @media (min-width: 1400px) {
-      .servicios {
-        grid-template-columns: repeat(4, 1fr);
-      }
+      .servicios { grid-template-columns: repeat(4, 1fr); }
     }
 
     /* Beneficios */
@@ -181,32 +185,14 @@
       padding: 25px;
       border-radius: 12px;
     }
-    .beneficios h3 {
-      color: #0077b6;
-      margin-bottom: 10px;
-    }
-    .beneficios ul {
-      list-style: none;
-      padding: 0;
-    }
-    .beneficios ul li {
-      margin: 10px 0;
-      font-size: 1.05rem;
-    }
-    .beneficios ul li::before {
-      content: "❄️";
-      margin-right: 10px;
-      color: #00b4d8;
-    }
+    .beneficios h3 { color: #0077b6; margin-bottom: 10px; }
+    .beneficios ul { list-style: none; padding: 0; }
+    .beneficios ul li { margin: 10px 0; font-size: 1.05rem; }
+    .beneficios ul li::before { content: "❄️"; margin-right: 10px; color: #00b4d8; }
 
     /* Casos */
-    .casos {
-      margin: 40px 0;
-    }
-    .casos h3 {
-      color: #0077b6;
-      margin-bottom: 15px;
-    }
+    .casos { margin: 40px 0; }
+    .casos h3 { color: #0077b6; margin-bottom: 15px; }
     .galeria {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -225,14 +211,8 @@
     }
 
     /* Videos */
-    .videos {
-      margin: 50px 0;
-      text-align: center;
-    }
-    .videos h3 {
-      color: #0077b6;
-      margin-bottom: 20px;
-    }
+    .videos { margin: 50px 0; text-align: center; }
+    .videos h3 { color: #0077b6; margin-bottom: 20px; }
     .video-galeria {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -240,8 +220,8 @@
     }
     .video-galeria video {
       width: 100%;
-      aspect-ratio: 1 / 1; 
-      object-fit: cover;    
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, filter 0.3s ease;
@@ -252,9 +232,7 @@
     }
 
     /* CTA */
-    .cta {
-      margin: 50px 0;
-    }
+    .cta { margin: 50px 0; }
     .cta button {
       background: linear-gradient(45deg, #00b4d8, #0077b6);
       color: white;
@@ -271,7 +249,7 @@
       transform: scale(1.08);
     }
 
-    /** Footer **/
+    /* Footer */
     footer {
       background-color: #001d3d;
       color: white;
@@ -279,7 +257,6 @@
       text-align: center;
     }
     footer a { color: #00bcd4; margin: 0 10px; text-decoration: none; }
-
   </style>
 </head>
 <body>
@@ -293,7 +270,15 @@
     </div>
     <nav>
       <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
-      <ul>
+      <!-- Menú escritorio -->
+      <ul class="main-menu">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="index.html#servicios"><i class="fa-solid fa-snowflake"></i> Servicios</a></li>
+        <li><a href="index.html#nosotros"><i class="fa-solid fa-users"></i> Nosotros</a></li>
+        <li><a href="index.html#contacto"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+      </ul>
+      <!-- Menú lateral móvil -->
+      <ul class="side-menu">
         <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
         <li><a href="index.html#servicios"><i class="fa-solid fa-snowflake"></i> Servicios</a></li>
         <li><a href="index.html#nosotros"><i class="fa-solid fa-users"></i> Nosotros</a></li>
@@ -389,9 +374,9 @@
   <!-- Script menú desplegable -->
   <script>
     const toggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('nav ul');
+    const sideMenu = document.querySelector('.side-menu');
     toggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
+      sideMenu.classList.toggle('active');
     });
   </script>
 </body>
