@@ -32,8 +32,8 @@
       gap: 12px;
     }
     .logo-container img {
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
       border-radius: 10px;
       transition: transform 0.6s ease, filter 0.3s ease;
       cursor: pointer;
@@ -87,8 +87,8 @@
     .servicios {
       margin: 40px 0;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      grid-template-columns: 1fr; /* En móviles → 1 columna */
+      gap: 20px;
     }
     .card {
       background: #fff;
@@ -110,6 +110,27 @@
       margin: 12px 0;
       font-size: 1.3rem;
       color: #333;
+    }
+
+        /* 🔹 Tablets (mínimo 600px) → 2 columnas */
+    @media (min-width: 600px) {
+      .servicios {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* 🔹 Escritorio (mínimo 1024px) → 3 columnas */
+    @media (min-width: 1024px) {
+      .servicios {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* 🔹 Pantallas grandes (mínimo 1400px) → 4 columnas */
+    @media (min-width: 1400px) {
+      .servicios {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     /* Beneficios */
@@ -179,6 +200,8 @@
     }
     .video-galeria video {
       width: 100%;
+      aspect-ratio: 1 / 1; 
+      object-fit: cover;    
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, filter 0.3s ease;
