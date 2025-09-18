@@ -83,19 +83,20 @@
       margin-bottom: 20px;
     }
 
-    /* Servicios */
+    /* 🔹 Servicios corregidos */
     .servicios {
       margin: 40px 0;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      grid-template-columns: 1fr; /* En móviles → 1 columna */
+      gap: 20px;
     }
     .card {
       background: #fff;
-      padding: 25px;
+      padding: 20px;
       border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
     }
     .card:hover {
       transform: translateY(-6px);
@@ -104,12 +105,33 @@
     .card i {
       font-size: 2.5rem;
       color: #007bff;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .card h3 {
-      margin: 12px 0;
-      font-size: 1.3rem;
+      margin: 10px 0;
+      font-size: 1.2rem;
       color: #333;
+    }
+
+    /* 🔹 Tablets (mínimo 600px) → 2 columnas */
+    @media (min-width: 600px) {
+      .servicios {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* 🔹 Escritorio (mínimo 1024px) → 3 columnas */
+    @media (min-width: 1024px) {
+      .servicios {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* 🔹 Pantallas grandes (mínimo 1400px) → 4 columnas */
+    @media (min-width: 1400px) {
+      .servicios {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     /* Beneficios */
@@ -179,8 +201,8 @@
     }
     .video-galeria video {
       width: 100%;
-      aspect-ratio: 1 / 1;   /* 🔲 Fuerza que el video tenga forma cuadrada */
-      object-fit: cover;     /* 📐 Ajusta el video dentro del cuadrado sin deformarlo */
+      aspect-ratio: 1 / 1; 
+      object-fit: cover;    
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, filter 0.3s ease;
@@ -219,12 +241,11 @@
     }
     footer a { color: #00bcd4; margin: 0 10px; text-decoration: none; }
 
-        /* 🔹 Media Queries (Responsive) */
+    /* Media Queries generales */
     @media (max-width: 1024px) {
       .hero h1 { font-size: 2.5rem; }
       .hero p { font-size: 1rem; }
     }
-
     @media (max-width: 768px) {
       header { flex-direction: column; text-align: center; }
       header nav { justify-content: center; margin-top: 10px; }
@@ -233,7 +254,6 @@
       .about { flex-direction: column; text-align: center; }
       .about img { max-width: 80%; }
     }
-
     @media (max-width: 480px) {
       .hero h1 { font-size: 1.6rem; }
       .hero p { font-size: 0.9rem; }
