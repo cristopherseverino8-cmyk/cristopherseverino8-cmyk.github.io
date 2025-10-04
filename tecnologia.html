@@ -1,391 +1,876 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicios de Tecnología</title>
-  <link rel="icon" href="Light Guard.png">
+  <meta charset="UTF-8" />
+  <title>Servicios Teconologicos</title>
+  <meta name="description" content="Light Guard - Soluciones en refrigeración, climatización, instalación, mantenimiento y reparación. Atención residencial, comercial e industrial.">
+  <meta name="keywords" content="refrigeración, aire acondicionado, mantenimiento, reparación, cuartos fríos, instalación, refrigeración industrial">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="imagenes/Light Guard.png" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- AOS (animate on scroll) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <style>
-    /* Reset básico */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-
-    body { 
-      scroll-behavior: smooth; 
-      background-color: #d3d7dc; 
-      color: #0a1f44; 
+    /* ---------------------------
+      Restablecer y base 
+       --------------------------- */
+    :root{
+      --bg:#f4f9fb;
+      --dark-blue:#001d3d;
+      --primary:#0077b6;
+      --accent:#00b4d8;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --radius:12px;
+      --glass: rgba(255,255,255,0.6);
+      --shadow: 0 6px 20px rgba(2,6,23,0.08);
     }
+    * { box-sizing: border-box; }
+    html,body { height:100%; }
+    body {
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg,#f6fbfd 0%, #e9f4f8 100%);
+      color: #1f2937;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      -webkit-tap-highlight-color: transparent;
+    }
+    a { color:var(--accent); text-decoration:none; }
+    img { max-width:100%; display:block; }
+    button { font-family:inherit; }
 
-    /* Emcabezado */
+    /* ---------------------------
+      Header
+       --------------------------- */
     header {
-      background-color: #0a1f44;
-      color: white;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       position: sticky;
-      top: 0;
-      z-index: 100;
-      flex-wrap: wrap;
+      top:0;
+      z-index:1200;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(90deg, rgba(1,38,57,0.95), rgba(0,95,115,0.95));
+      padding:12px 28px;
+      box-shadow: 0 6px 20px rgba(2,6,23,0.18);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
     }
+    .logo-container{ display:flex; align-items:center; gap:12px; }
+    .logo-container img{
+      width:50px; height:50px; border-radius:10px; object-fit:cover;
+      transition: transform .6s ease, filter .3s ease;
+      cursor:pointer;
+    }
+    .logo-container img:hover{ transform:scale(1.08) rotate(10deg); filter:drop-shadow(0 6px 18px rgba(0,180,216,0.2)); }
+    .logo-container h1{ margin:0; color:#fff; font-size:1.25rem; letter-spacing:0.4px; }
+    nav { display:flex; align-items:center; gap:18px; }
+    nav .main-menu { list-style:none; margin:0; padding:0; display:flex; gap:18px; align-items:center;}
+    nav .main-menu li a {
+      color: #e6eef1; padding:8px 12px; border-radius:8px; font-weight:600; font-size:.95rem;
+      transition:.18s;
+    }
+    nav .main-menu li a:hover{ color: #fff; background: rgba(255,255,255,0.02); box-shadow: inset 0 -2px 0 rgba(255,255,255,0.02); transform:translateY(-2px); }
+    .cta-top { background: linear-gradient(90deg,var(--accent),var(--primary)); color:white; padding:10px 14px; border-radius:10px; font-weight:700; box-shadow:var(--shadow); border:none; cursor:pointer; }
+    .menu-toggle { display:none; background:none; border:none; color:#fff; font-size:1.4rem; }
 
-    /* Logo con animación */
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo img {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-    .logo h2 {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: white;
-    }
+    /* layout */
+    .container { max-width:1200px; margin:40px auto; padding:0 20px; }
 
-    header nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    header nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    header nav a:hover { color: #00bcd4; }
-
-    /* Hero */
+    /* ---------------------------
+      Hero
+       --------------------------- */
     .hero {
-      background: url('https://images.unsplash.com/photo-1581091012184-496a917b7e3b?auto=format&fit=crop&w=1080&q=80') center/cover no-repeat;
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: rgb(43, 55, 219);
-      text-align: center;
-      padding: 0 20px;
+      height:70vh;
+      border-radius:18px;
+      margin:18px auto;
+      position:relative;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:24px;
+      align-items:center;
+      padding:28px;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.18)),
+        url('imagenes/hero-refrigeracion.jpg') center/cover no-repeat;
+      color:white;
     }
-    .hero h1 { font-size: 3rem; margin-bottom: 20px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 30px; }
-    .hero a {
-      background-color: #00bcd4;
-      color: white;
-      padding: 15px 30px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
+    .hero .left { padding:8px 12px; max-width:720px; }
+    .hero h2 { font-size:2.4rem; line-height:1.05; margin:0 0 12px; text-shadow: 0 10px 30px rgba(0,0,0,0.45); }
+    .hero p { margin:0 0 18px; color:rgba(255,255,255,0.95); font-size:1.05rem; }
+    .hero .hero-cta { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .btn-primary {
+      background: linear-gradient(90deg,var(--accent),var(--primary));
+      padding:12px 18px; color:white; border-radius:10px; border:none; font-weight:700; cursor:pointer;
+      box-shadow: 0 8px 30px rgba(0,119,182,0.18);
+      transition: transform .15s ease;
     }
-    .hero a:hover { background-color: #0097a7; }
+    .btn-primary:hover{ transform: translateY(-4px); }
+    .btn-outline { background:transparent; color:white; padding:10px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); font-weight:600; }
 
-    /* Servicios */
-    .services {
-      padding: 60px 30px;
-      background-color: #f4f4f4;
+    .hero .right {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.05));
+      padding:14px; border-radius:12px; backdrop-filter: blur(4px);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.2);
+      color:#fff;
     }
-    .services h2 { text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: #0a1f44; }
-    .service-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    .card:hover { transform: scale(1.05); }
-    .card i { font-size: 3rem; color: #00bcd4; margin-bottom: 20px; }
-    .card h3 { margin-bottom: 15px; color: #0a1f44; }
-    .card p { color: #0a1f44; }
+    .hero .contact-card { display:flex; flex-direction:column; gap:8px; }
+    .contact-row { display:flex; gap:8px; align-items:center; justify-content:space-between; }
+    .contact-row small { color:rgba(255,255,255,0.85); font-weight:600; }
+    .contact-big { font-size:1.1rem; font-weight:700; color:white; }
 
-    /* Nosotros */
-    .about {
-      padding: 60px 30px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 40px;
+    /* ---------------------------
+      Services grid
+       --------------------------- */
+    .section-title { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+    .section-title h3 { margin:0; color:var(--primary); }
+    .services-grid {
+      display:grid; gap:18px;
+      grid-template-columns: repeat(1, 1fr);
     }
-    .about img {
-      flex: 1 1 300px;
-      border-radius: 15px;
-      max-width: 100%;
-      height: auto;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    .service-card {
+      background:var(--card); padding:18px; border-radius:var(--radius);
+      box-shadow: var(--shadow); display:flex; gap:12px; align-items:flex-start; transition:.22s;
     }
-    .about img:hover {
-      transform: scale(1.08); 
-      box-shadow: 0 15px 35px rgba(0, 188, 212, 0.4);
-    }
-    .about .text { flex: 2 1 400px; }
-    .about h2 { font-size: 2.5rem; margin-bottom: 20px; color: #0a1f44; }
-    .about p { font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-    .about p i { color: #00bcd4; font-size: 1.3rem; }
+    .service-card:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(2,6,23,0.08); }
+    .service-card i { font-size:1.7rem; color:var(--primary); width:40px; text-align:center; }
+    .service-card h4{ margin:0 0 6px 0; font-size:1.05rem; }
+    .service-card p{ margin:0; color:var(--muted); font-size:.95rem; }
 
-    /* Casos de éxito */
-    .cases {
-      padding: 60px 30px;
-      background-color: #f4f4f4;
-    }
-    .cases h2 { text-align: center; margin-bottom: 40px; font-size: 2.5rem; color: #0a1f44; }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-    }
-    .gallery img:hover { transform: scale(1.05); }
+    @media(min-width:720px){ .services-grid{ grid-template-columns: repeat(2, 1fr);} }
+    @media(min-width:1100px){ .services-grid{ grid-template-columns: repeat(3, 1fr);} }
 
-    /* Videos */
-    .videos {
-      margin: 50px 0;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .videos h3 {
-      color: #007bff;
-      margin-bottom: 20px;
-    }
-    .video-galeria {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .video-galeria video {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    .video-galeria video:hover {
-      transform: scale(1.05);
-      filter: brightness(1.1);
-    }
+    /* ---------------------------
+      Casos de éxito (slider + filtros + modal)
+       --------------------------- */
+    .cases-wrap { margin-top:28px; }
+    .cases-top { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap; }
+    .filters { display:flex; gap:8px; flex-wrap:wrap; }
+    .filter-btn { padding:8px 12px; border-radius:999px; border:1px solid rgba(1,38,57,0.06); background:white; font-weight:600; cursor:pointer; }
+    .filter-btn.active { background: linear-gradient(90deg,var(--accent),var(--primary)); color:#fff; border:none; box-shadow: 0 8px 24px rgba(0,119,182,0.12); }
 
-    /* Contacto */
-    .contact {
-      padding: 60px 30px;
-      background-color: #f4f4f4;
+    /* slider */
+    .cases-slider { position:relative; display:flex; gap:14px; overflow:hidden; align-items:center; }
+    .cases-track { display:flex; gap:14px; transition: transform .5s cubic-bezier(.22,.9,.35,1); padding:8px 30px; }
+    .case-item {
+      min-width:300px; max-width:320px; background:var(--card); border-radius:12px; box-shadow:var(--shadow);
+      overflow:hidden; cursor:grab; transition:.18s;
     }
-    .contact h2 { text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: #0a1f44; }
-    .contact form {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .contact input, .contact textarea {
-      padding: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-      width: 100%;
-      color: #0a1f44;
-    }
-    .contact button {
-      padding: 15px;
-      background-color: #00bcd4;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .contact button:hover { background-color: #0097a7; }
+    .case-item:hover{ transform: translateY(-6px); }
+    .case-media { height:200px; overflow:hidden; }
+    .case-media img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s; }
+    .case-body { padding:12px; }
+    .case-tags { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
+    .tag { background: #eef8fb; color:var(--primary); padding:6px 8px; border-radius:8px; font-weight:600; font-size:.85rem; }
 
-    /* CTA */
-    .cta {
-      margin: 50px 0;
-    }
-    .cta button {
-      background: linear-gradient(45deg, #007bff, #0056b3);
-      color: white;
-      border: none;
-      padding: 15px 35px;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    .cta button:hover {
-      background: linear-gradient(45deg, #0056b3, #004085);
-      transform: scale(1.08);
-    }
+    .slider-controls { display:flex; gap:10px; align-items:center; }
+    .ctrl-btn { background:#fff; border-radius:8px; padding:8px; border:1px solid rgba(2,6,23,0.06); cursor:pointer; }
+    .ctrl-btn:active{ transform:scale(.98); }
 
-    /* Footer */
-    footer {
-      background-color: #0a1f44;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
-    footer a { color: #00bcd4; margin: 0 10px; text-decoration: none; }
+    /* modal detalle proyecto */
+    .modal-backdrop { position:fixed; inset:0; background:rgba(2,6,23,0.6); display:flex; align-items:center; justify-content:center; z-index:1500; opacity:0; visibility:hidden; transition:.2s; }
+    .modal-backdrop.show{ opacity:1; visibility:visible; }
+    .modal { width:92%; max-width:980px; background:var(--card); border-radius:14px; overflow:hidden; box-shadow:0 40px 80px rgba(2,6,23,0.4); display:grid; grid-template-columns: 1fr 420px; }
+    .modal .gallery { display:grid; gap:8px; padding:18px; }
+    .modal .info { padding:18px; background:linear-gradient(180deg,#f9fcff,#f1fbff); }
+    .modal h4{ margin:6px 0 8px 0; }
+    .modal p{ margin:6px 0; color:var(--muted); }
+    .close-modal { position:absolute; top:14px; right:18px; background:transparent; border:none; color:#fff; font-size:1.2rem; cursor:pointer; }
 
-    /* 🔹 Media Queries (Responsive) */
-    @media (max-width: 1024px) {
-      .hero h1 { font-size: 2.5rem; }
-      .hero p { font-size: 1rem; }
-    }
+    /* ---------------------------
+      Trabajos realizados (videos grid + lightbox)
+       --------------------------- */
+    .videos-grid { display:grid; gap:14px; grid-template-columns: repeat(1, 1fr); margin-top:18px; }
+    .video-card { background:var(--card); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); }
+    .video-card video { width:100%; height:auto; display:block; }
+    @media(min-width:700px){ .videos-grid{ grid-template-columns: repeat(2, 1fr);} }
+    @media(min-width:1100px){ .videos-grid{ grid-template-columns: repeat(3, 1fr);} }
 
-    @media (max-width: 768px) {
-      header { flex-direction: column; text-align: center; }
-      header nav { justify-content: center; margin-top: 10px; }
-      .hero h1 { font-size: 2rem; }
-      .hero p { font-size: 1rem; }
-      .about { flex-direction: column; text-align: center; }
-      .about img { max-width: 80%; }
-    }
+    /* ---------------------------
+      Testimonios
+       --------------------------- */
+    .testimonials { margin-top:28px; display:grid; gap:12px; grid-template-columns:1fr; }
+    .testimonial { background:linear-gradient(180deg,#fff,#f7fbff); border-radius:12px; padding:16px; box-shadow:var(--shadow); display:flex; gap:12px; align-items:flex-start; }
+    .avatar { width:60px; height:60px; border-radius:12px; overflow:hidden; flex-shrink:0; }
+    .stars { color:#ffb020; font-weight:800; }
 
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 1.6rem; }
-      .hero p { font-size: 0.9rem; }
-      .services h2, .cases h2, .about h2, .contact h2 { font-size: 1.8rem; }
-      .cta button { font-size: 1rem; padding: 12px 25px; }
-      .video-galeria { grid-template-columns: 1fr; }
+    @media(min-width:900px){ .testimonials{ grid-template-columns: repeat(2, 1fr); } }
+
+    /* ---------------------------
+      FAQ
+       --------------------------- */
+    .faq { margin-top:22px; display:grid; gap:10px; }
+    .faq details { background:var(--card); padding:12px 16px; border-radius:10px; box-shadow:var(--shadow); cursor:pointer; }
+    .faq summary { font-weight:700; outline:none; }
+
+    /* ---------------------------
+      Contact & Location
+       --------------------------- */
+    .contact-location { margin-top:28px; display:grid; gap:18px; grid-template-columns: 1fr; }
+    .contact-form { background:var(--card); padding:18px; border-radius:12px; box-shadow:var(--shadow); }
+    .contact-form form { display:grid; gap:10px; }
+    .contact-form input, .contact-form textarea, .contact-form select {
+      padding:12px; border-radius:10px; border:1px solid #e6eef1; font-size:1rem; width:100%;
     }
+    .contact-form .row { display:grid; gap:10px; grid-template-columns: 1fr; }
+    @media(min-width:800px){ .contact-location{ grid-template-columns: 1fr 420px; } .contact-form .row{ grid-template-columns: repeat(2, 1fr);} }
+
+    .map-card { background:linear-gradient(180deg,#fff,#fbfeff); border-radius:12px; padding:12px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:12px; }
+    .map-frame { width:100%; height:320px; border-radius:10px; overflow:hidden; box-shadow:inset 0 -6px 30px rgba(0,0,0,0.06); }
+
+    .place-info { display:flex; gap:12px; align-items:center; justify-content:space-between; }
+    .place-info .left { display:flex; gap:10px; align-items:center; }
+    .place-info img{ width:70px; height:70px; border-radius:10px; object-fit:cover; }
+    .place-actions { display:flex; gap:10px; align-items:center; }
+    .small-btn { padding:8px 10px; border-radius:10px; border:none; font-weight:700; cursor:pointer; }
+    .btn-whatsapp { background:#25d366; color:white; }
+    .btn-call { background:var(--primary); color:white; }
+
+    /* ---------------------------
+      Footer
+       --------------------------- */
+    footer { margin-top:36px; padding:28px 18px; background:linear-gradient(180deg,var(--dark-blue), #002f4b); color:white; border-top-left-radius:12px; border-top-right-radius:12px; }
+    .footer-inner { max-width:1200px; margin:0 auto; display:flex; gap:20px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; padding:8px 18px; }
+    .footer-col { min-width:180px; }
+    .socials a{ display:inline-block; margin-right:8px; color:white; font-size:1.2rem; }
+
+    /* ---------------------------
+      Floating actions (WhatsApp & Call)
+       --------------------------- */
+    .floating {
+      position:fixed; bottom:18px; right:18px; display:flex; gap:10px; flex-direction:column; z-index:1400;
+    }
+    .fab {
+      width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:1.4rem; box-shadow:0 10px 30px rgba(2,6,23,0.18); cursor:pointer;
+    }
+    .fab.whatsapp { background:#25d366; }
+    .fab.call { background:var(--primary); }
+
+    /* ---------------------------
+      Utilities
+       --------------------------- */
+    .muted { color:var(--muted); }
+    .center { text-align:center; }
+    .mb-8{ margin-bottom:20px; }
   </style>
 </head>
 <body>
+  <!-- Structured data (Organization) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Light Guard",
+    "image":"https://example.com/imagenes/Light Guard.png",
+    "telephone":"+1 809 123 4567",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Calle Principal, Los Pomos",
+      "addressLocality":"La Vega",
+      "addressRegion":"La Vega",
+      "postalCode":"41000",
+      "addressCountry":"DO"
+    },
+    "description":"Servicios de refrigeración, instalación, mantenimiento y reparación - Light Guard",
+    "url":"https://tusitio.com",
+    "sameAs":["https://facebook.com/tuempresa","https://instagram.com/tuempresa"]
+  }
+  </script>
+
   <!-- Header -->
   <header>
-    <div class="logo">
-      <img src="imagenes/Light Guard.png" alt="Logo Light Guard">
-      <h2>Light Guard</h2>
+    <div class="logo-container">
+      <a href="imagenes/Light Guard.png"><img src="imagenes/Light Guard.png" alt="Logo"></a>
+      <h1>Light Guard</h1>
     </div>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="index.html#services">Servicios</a>
-      <a href="#about">Nosotros</a>
-      <a href="#cases">Casos</a>
-      <a href="#contact">Contacto</a>
+      <ul class="main-menu" aria-label="Menú principal">
+        <li><a href="index.html"><i class="fa-solid fa-snowflake"></i> Inicio</a></li>
+        <li><a href="#servicios"><i class="fa-solid fa-snowflake"></i> Servicios</a></li>
+        <li><a href="#casos"><i class="fa-solid fa-briefcase"></i> Casos</a></li>
+        <li><a href="#trabajos"><i class="fa-solid fa-video"></i> Trabajos</a></li>
+        <li><a href="#testimonios"><i class="fa-solid fa-star"></i> Testimonios</a></li>
+        <li><a href="#contacto"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+      </ul>
+      <button class="menu-toggle" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      <button class="cta-top" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Solicitar servicio</button>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <h1>Innovación y Tecnología a tu Alcance</h1>
-    <p>Brindamos soluciones de soporte técnico, desarrollo de software y redes para tu empresa.</p>
-    <a href="index.html#services">Ver Servicios</a>
-  </section>
-
-  <!-- Servicios -->
-  <section class="services" id="services">
-    <h2>Nuestros Servicios</h2>
-    <div class="service-cards">
-      <div class="card">
-        <i class="fas fa-desktop"></i>
-        <h3>Soporte Técnico</h3>
-        <p>Solución de problemas y mantenimiento de equipos de manera rápida y eficiente.</p>
+  <!-- HERO -->
+  <main class="container">
+    <section class="hero" role="banner" aria-label="Hero - Light Guard">
+      <div class="left" data-aos="fade-up">
+        <h2>Tus preocupaciones son nuestra prioridad</h2>
+        <p>Instalación, mantenimiento y reparación profesional de sistemas de tegnologia y reparaciones electrónicas para hogares, comercios e industrias. Atención rápida y garantía en todos nuestros trabajos.</p>
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})"><i class="fa-solid fa-calendar-check"></i> Solicitar cita</button>
+          <button class="btn-outline" onclick="document.getElementById('casos').scrollIntoView({behavior:'smooth'})"><i class="fa-solid fa-briefcase"></i> Ver casos de éxito</button>
+        </div>
+        <div style="margin-top:14px; display:flex; gap:9px; align-items:center; color:rgba(255,255,255,0.9);">
+          <div style="display:flex; gap:6px; align-items:center;">
+            <i class="fa-solid fa-headset" style="background:rgba(255,255,255,0.06); padding:8px; border-radius:10px;"></i>
+            <div style="text-align:left;">
+              <small>Atención 24/7</small><div style="font-weight:700;">+1 809 123 4567</div>
+            </div>
+          </div>
+          <div style="border-left:1px solid rgba(255,255,255,0.12); padding-left:10px;">
+            <small>Servicio en</small><div style="font-weight:700;">La Vega y zonas cercanas</div>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <i class="fas fa-code"></i>
-        <h3>Desarrollo de Software</h3>
-        <p>Aplicaciones y programas personalizados según las necesidades de tu negocio.</p>
+
+      <aside class="right" data-aos="fade-left">
+        <div class="contact-card">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <small>Dirección</small>
+            <small style="font-weight:700">Horario</small>
+          </div>
+          <div class="contact-row">
+            <div class="left">
+              <div class="contact-big">Los Pomos, La Vega</div>
+              <div class="muted" style="font-size:.95rem">Calle salvador Beato #10</div>
+            </div>
+            <div class="right" style="text-align:right;">
+              <div class="muted">Lun - Vie</div>
+              <div style="font-weight:700">8:00 - 18:00</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:8px; margin-top:8px;">
+            <a class="small-btn btn-whatsapp" href="https://wa.me/18091234567" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a class="small-btn btn-call" href="tel:+18091234567"><i class="fa-solid fa-phone"></i> Llamar</a>
+            <button class="small-btn" onclick="openDirections()">Cómo llegar</button>
+          </div>
+          <div style="margin-top:10px;">
+            <small class="muted">Garantía</small><div style="font-weight:700">12 meses en reparaciones</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="servicios" class="mb-8" data-aos="fade-up">
+      <div class="section-title">
+        <h3>Servicios destacados</h3>
+        <small class="muted">Instalación • Mantenimiento • Reparación tecnologico </small>
       </div>
-      <div class="card">
-        <i class="fas fa-network-wired"></i>
-        <h3>Instalación de Redes</h3>
-        <p>Configuración de redes locales y conexión segura para tu empresa o hogar.</p>
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-right">
+          <i class="fa-solid fa-snowflake"></i>
+          <div>
+            <h4>Instalación de equipos</h4>
+            <p>Soluciones tecnológicas en climatización y refrigeración con garantía certificada.</p>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+          <div>
+            <h4>Mantenimiento preventivo</h4>
+            <p>Planes periódicos para maximizar eficiencia y reducir costes de energía.</p>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-left">
+          <i class="fa-solid fa-fan"></i>
+          <div>
+            <h4>Reparación y diagnóstico</h4>
+            <p>Diagnóstico con instrumentos y reparación con repuestos garantizados.</p>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-right">
+          <i class="fa-solid fa-temperature-low"></i>
+          <div>
+            <h4>Climatización comercial</h4>
+            <p>Sistemas eficientes para comercios y oficinas con control por zonas.</p>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up">
+          <i class="fa-solid fa-industry"></i>
+          <div>
+            <h4>Sistemas infromaticos</h4>
+            <p>Soluciones tecnológicas en sistemas informáticos con soporte y certificación.</p>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-left">
+          <i class="fa-solid fa-shield-halved"></i>
+          <div>
+            <h4>Certificados y garantías</h4>
+            <p>Emitimos certificados de mantenimiento y entregamos garantías por escrito.</p>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <i class="fas fa-shield-alt"></i>
-        <h3>Seguridad Informática</h3>
-        <p>Protección de datos y sistemas contra amenazas digitales y accesos no autorizados.</p>
+    </section>
+
+    <!-- CASOS DE ÉXITO (Slider + Filtros) -->
+    <section id="casos" class="cases-wrap" data-aos="fade-up">
+      <div class="cases-top">
+        <div>
+          <h3>📸 Casos de éxito</h3>
+          <small class="muted">Antes / Después • Proyectos reales</small>
+        </div>
+        <div style="display:flex; gap:12px; align-items:center;">
+          <div class="filters" role="tablist" aria-label="Filtros proyectos">
+            <button class="filter-btn active" data-filter="all" onclick="filterCases('all')">Todos</button>
+            <button class="filter-btn" data-filter="residencial" onclick="filterCases('residencial')">Residencial</button>
+            <button class="filter-btn" data-filter="comercial" onclick="filterCases('comercial')">Comercial</button>
+            <button class="filter-btn" data-filter="industrial" onclick="filterCases('industrial')">Industrial</button>
+          </div>
+          <div class="slider-controls">
+            <button class="ctrl-btn" aria-label="Atrás" onclick="slideCases(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="ctrl-btn" aria-label="Siguiente" onclick="slideCases(1)"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cases-slider" id="cases-slider" tabindex="0" aria-roledescription="carousel">
+        <div class="cases-track" id="cases-track">
+          <!-- CASE ITEMS (data attributes used by JS) -->
+          <article class="case-item" data-category="residencial" data-title="Instalación split - Residencia" data-desc="Instalación de aire split de 2.5 Ton en vivienda. Ajuste de tuberías, carga y calibración." data-before="imagenes/instalacion de aire.jpg" data-after="imagenes/instalacion-de-aire-after.jpg">
+            <div class="case-media"><img src="imagenes/tecnologia1.jpg" alt="Antes - repacion tecnologico"></div>
+            <div class="case-body">
+              <div class="case-tags"><span class="tag">Residencial</span><span class="tag">Instalación</span></div>
+              <h4 style="margin:0 0 8px 0;">Instalación split - Residencia</h4>
+              <p class="muted" style="font-size:.95rem;">Instalación completa con pruebas y puesta en marcha.</p>
+              <div style="margin-top:10px; display:flex; gap:8px;">
+                <button class="filter-btn" onclick="openCaseModal(this.parentElement.parentElement.parentElement)">Ver proyecto</button>
+                <button class="filter-btn" onclick="openBeforeAfter('imagenes/instalacion de aire.jpg','imagenes/instalacion-de-aire-after.jpg')">Antes / Después</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-item" data-category="comercial" data-title="Cámara frigorífica - Supermercado" data-desc="Instalación de cuarto frío 4x3m con evaporador de alta capacidad y control digital." data-before="imagenes/OIP.webp" data-after="imagenes/OIP-after.webp">
+            <div class="case-media"><img src="imagenes/tecnologia2.jpg" alt="Antes - Cámara frigorífica"></div>
+            <div class="case-body">
+              <div class="case-tags"><span class="tag">Comercial</span><span class="tag">Mantenimiento cpu</span></div>
+              <h4>Equipos - Empresariales</h4>
+              <p class="muted">Proyecto integral para equipos de empresas con control de temperatura.</p>
+              <div style="margin-top:10px; display:flex; gap:8px;">
+                <button class="filter-btn" onclick="openCaseModal(this.parentElement.parentElement.parentElement)">Ver proyecto</button>
+                <button class="filter-btn" onclick="openBeforeAfter('imagenes/OIP.webp','imagenes/OIP-after.webp')">Antes / Después</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-item" data-category="residencial" data-title="Reparación de nevera" data-desc="Reparación de compresor, reemplazo de válvula de expansión y recarga de gas." data-before="imagenes/R.png" data-after="imagenes/R-after.png">
+            <div class="case-media"><img src="imagenes/tecnologia3.jpg" alt="Antes - Reparación de nevera"></div>
+            <div class="case-body">
+              <div class="case-tags"><span class="tag">Residencial</span><span class="tag">Reparación</span></div>
+              <h4>Reparación motherboard </h4>
+              <p class="muted">Servicio rápido con piezas originales y garantía.</p>
+              <div style="margin-top:10px; display:flex; gap:8px;">
+                <button class="filter-btn" onclick="openCaseModal(this.parentElement.parentElement.parentElement)">Ver proyecto</button>
+                <button class="filter-btn" onclick="openBeforeAfter('imagenes/R.png','imagenes/R-after.png')">Antes / Después</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- more cases can be added following the structure above -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal: detalles del caso -->
+    <div id="case-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal" role="document" id="modal-content">
+        <div class="gallery" id="modal-gallery">
+          <!-- gallery images inserted by JS -->
+        </div>
+        <div class="info">
+          <h4 id="modal-title">Proyecto</h4>
+          <p id="modal-desc">Descripción del proyecto</p>
+          <p><strong>Servicios aplicados:</strong> Instalación • Puesta en marcha • Prueba de fugas</p>
+          <p><strong>Resultado:</strong> Cliente satisfecho, sistema funcionando a especificación.</p>
+          <div style="margin-top:12px; display:flex; gap:8px;">
+            <a class="small-btn btn-whatsapp" href="https://wa.me/18091234567" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Contactar</a>
+            <button class="small-btn" onclick="closeCaseModal()">Cerrar</button>
+          </div>
+        </div>
+        <button class="close-modal" aria-label="Cerrar modal" onclick="closeCaseModal()"><i class="fa-solid fa-xmark"></i></button>
       </div>
     </div>
-  </section>
 
-  <!-- Nosotros -->
-  <section class="about" id="about">
-    <img src="imagenes/Light Guard.png" alt="Equipo Light Guard">
-    <div class="text">
-      <h2>Sobre Nosotros</h2>
-      <p><i class="fas fa-lightbulb"></i> Light Guard es una empresa dedicada a brindar soluciones tecnológicas confiables y eficientes.</p>
-      <p><i class="fas fa-users"></i> Nuestro equipo de expertos trabaja con pasión para ofrecer soporte, desarrollo y seguridad.</p>
-      <p><i class="fas fa-shield-alt"></i> Nuestra misión es impulsar la innovación y proteger los sistemas de nuestros clientes.</p>
+    <!-- Antes/Después Lightbox -->
+    <div id="before-after-modal" class="modal-backdrop" role="dialog" aria-hidden="true">
+      <div style="width:95%; max-width:1100px; background:var(--card); border-radius:12px; padding:12px;">
+        <div style="display:flex; gap:10px; align-items:center; justify-content:space-between; margin-bottom:8px;">
+          <strong id="ba-title">Antes / Después</strong>
+          <button onclick="closeBeforeAfter()" class="small-btn">Cerrar</button>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr; gap:10px;">
+          <div style="display:flex; gap:8px; align-items:center;">
+            <img id="ba-before" src="" alt="Antes" style="width:50%; border-radius:8px; object-fit:cover;">
+            <img id="ba-after" src="" alt="Después" style="width:50%; border-radius:8px; object-fit:cover;">
+          </div>
+          <div style="display:flex; gap:12px;">
+            <button onclick="downloadImage('ba-before')" class="filter-btn">Descargar Antes</button>
+            <button onclick="downloadImage('ba-after')" class="filter-btn">Descargar Después</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <!-- Casos de éxito -->
-  <section class="cases" id="cases">
-    <h2>📸 Casos de Éxito</h2>
-    <div class="gallery">
-      <img src="imagenes/tecnologia1.jpg" alt="Proyecto 1">
-      <img src="imagenes/tecnologia2.jpg" alt="Proyecto 2">
-      <img src="imagenes/tecnologia3.jpg" alt="Proyecto 3">
-    </div>
-  </section>
+    <!-- TRABAJOS REALIZADOS (Videos) -->
+    <section id="trabajos" data-aos="fade-up">
+      <div class="section-title">
+        <h3>🎥 Trabajos realizados</h3>
+        <small class="muted">Videos cortos de instalaciones y reparaciones</small>
+      </div>
+      <div class="videos-grid">
+        <div class="video-card" data-aos="zoom-in">
+          <video controls poster="imagenes/video1-thumb.jpg">
+            <source src="videos/videos de refigeracion 1.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+          </video>
+          <div style="padding:10px;"><strong>Instalación Split residencial</strong><div class="muted" style="font-size:.9rem">2:34 min • Instalación y puesta en marcha</div></div>
+        </div>
 
-  <!-- Videos -->
-  <div class="videos">
-    <h3>🎥 Trabajos realizados</h3>
-    <div class="video-galeria">
-      <video controls>
-        <source src="videos/Video Electrico 1.mp4" type="video/mp4">
-        Tu navegador no soporta el formato de video.
-      </video>
-      <video controls>
-        <source src="videos/Video Electrico 1.mp4" type="video/mp4">
-        Tu navegador no soporta el formato de video.
-      </video>
-      <video controls>
-        <source src="videos/Video Electrico 1.mp4" type="video/mp4">
-        Tu navegador no soporta el formato de video.
-      </video>
-    </div>
-  </div>
+        <div class="video-card" data-aos="zoom-in" data-aos-delay="80">
+          <video controls poster="imagenes/video2-thumb.jpg">
+            <source src="videos/videos de tegnologia 2.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+          </video>
+          <div style="padding:10px;"><strong>Mantenimiento preventivo - Restaurante</strong><div class="muted" style="font-size:.9rem">3:10 min • Limpieza y calibración</div></div>
+        </div>
 
-  <!-- CTA -->
-  <center>
-    <div class="cta">
-      <button onclick="window.location.href='index.html#contacto'">⚡ Solicitar servicio tecnológicos</button>
-    </div>
-  </center>
+        <div class="video-card" data-aos="zoom-in" data-aos-delay="160">
+          <video controls poster="imagenes/video3-thumb.jpg">
+            <source src="videos/videos de refigeracion 3.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+          </video>
+          <div style="padding:10px;"><strong>Reparación de compresor industrial</strong><div class="muted" style="font-size:.9rem">4:05 min • Reemplazo y pruebas</div></div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Contacto -->
-  <section class="contact" id="contact">
-    <h2>Contacto</h2>
-    <form action="https://formspree.io/f/mayvzdwl" method="POST">
-      <input type="text" name="name" placeholder="Tu nombre" required>
-      <input type="email" name="email" placeholder="Tu correo electrónico" required>
-      <textarea name="message" placeholder="Tu mensaje" rows="6" required></textarea>
-      <button type="submit">Enviar Mensaje</button>
-    </form>
-    <p style="text-align:center; margin-top:20px;">Email: christopherseverino21@gmail.com | Teléfono: +1 809-382-3241</p>
-    <p style="text-align:center;">Síguenos: 
-      <a href="https://www.facebook.com/alessander.severino"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/chris_982s/"><i class="fab fa-twitter"></i></a>
-      <a href="https://x.com/ChristoSev50827"><i class="fab fa-linkedin-in"></i></a>
-    </p>
-  </section>
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" data-aos="fade-up">
+      <div class="section-title">
+        <h3>Lo que dicen nuestros clientes</h3>
+        <small class="muted">Reseñas reales y verificadas</small>
+      </div>
+      <div class="testimonials">
+        <div class="testimonial" data-aos="fade-right">
+          <div class="avatar"><img src="imagenes/María R.jpg" alt="Cliente 1"></div>
+          <div>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <strong>María R.</strong>
+              <div class="muted" style="font-size:.9rem;">Cliente residencial</div>
+            </div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="muted">"Rápidos, profesionales y dejaron todo limpio. El aire funciona perfecto desde la instalación."</p>
+          </div>
+        </div>
+
+        <div class="testimonial" data-aos="fade-left">
+          <div class="avatar"><img src="imagenes/María R.jpg" alt="Cliente 2"></div>
+          <div>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <strong>Comercial LA</strong>
+              <div class="muted" style="font-size:.9rem;">Empresa</div>
+            </div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="muted">"Excelente soporte técnico, respondieron a la emergencia y dejaron el sistema estable. 100% recomendados."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" data-aos="fade-up">
+      <div class="section-title">
+        <h3>Preguntas frecuentes</h3>
+        <small class="muted">Resuelve tus dudas rápidamente</small>
+      </div>
+      <div class="faq">
+        <details><summary>¿Cuánto tiempo toma una instalación típica?</summary><p class="muted">Depende del equipo: una unidad split suele tomar entre 2-5 horas; cámaras frigoríficas o sistemas industriales requieren planificación y varios días.</p></details>
+        <details><summary>¿Ofrecen garantía?</summary><p class="muted">Sí, brindamos garantía escrita de 6 a 12 meses según el servicio y las piezas utilizadas.</p></details>
+        <details><summary>¿Trabajan con empresas y restaurantes?</summary><p class="muted">Sí, tenemos experiencia en proyectos comerciales e industriales, con soluciones a medida.</p></details>
+      </div>
+    </section>
+
+    <!-- CONTACTO Y UBICACIÓN -->
+    <section id="contacto" class="contact-location" data-aos="fade-up">
+      <div class="contact-form">
+        <h3>Contacto</h3>
+        <p class="muted">Completa el formulario y nos pondremos en contacto. También puedes escribir por WhatsApp o llamar directamente.</p>
+        <form id="contactForm" onsubmit="submitContact(event)">
+          <div class="row">
+            <input type="text" id="name" name="name" placeholder="Nombre completo" required />
+            <input type="email" id="email" name="email" placeholder="Correo electrónico" required />
+          </div>
+          <div class="row">
+            <input type="tel" id="phone" name="phone" placeholder="Teléfono (opcional)" />
+            <select id="service" name="service">
+              <option value="">Selecciona servicio (opcional)</option>
+              <option value="instalacion">Instalación</option>
+              <option value="mantenimiento">Mantenimiento</option>
+              <option value="reparacion">Reparación</option>
+              <option value="industrial">Industrial</option>
+            </select>
+          </div>
+          <textarea id="message" name="message" rows="5" placeholder="Describe brevemente tu solicitud" required></textarea>
+          <div style="display:flex; gap:10px; align-items:center; margin-top:8px;">
+            <button type="submit" class="btn-primary">Enviar mensaje</button>
+            <a class="small-btn btn-whatsapp" href="https://wa.me/18091234567" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a class="small-btn btn-call" href="tel:+18091234567"><i class="fa-solid fa-phone"></i> Llamar</a>
+          </div>
+          <div id="contact-result" style="margin-top:10px;"></div>
+        </form>
+      </div>
+
+      <aside class="map-card" role="region" aria-label="Ubicación y cómo llegar">
+        <div class="place-info">
+          <div class="left">
+            <img src="imagenes/Light Guard.png" alt="Light Guard">
+            <div>
+              <strong>Light Guard - Taller Los Pomos</strong>
+              <div class="muted">Calle Principal #123, La Vega</div>
+            </div>
+          </div>
+          <div class="place-actions">
+            <a class="small-btn btn-whatsapp" href="https://wa.me/18091234567" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+            <a class="small-btn btn-call" href="tel:+18091234567"><i class="fa-solid fa-phone"></i></a>
+            <button class="small-btn" onclick="openDirections()">Cómo llegar</button>
+          </div>
+        </div>
+
+        <div class="map-frame" id="map-frame">
+          <!-- Google Maps iframe: reemplaza el src con tu embed real -->
+          <iframe
+            id="gmap"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3811.1234567890123!2d-70.529!3d19.230!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb1c123456789ab%3A0xabcdef1234567890!2sLos%20Pomos%2C%20La%20Vega%2C%20Rep.%20Dom.!5e0!3m2!1ses!2sdo!4v169xxxxxxx"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div style="display:flex; gap:8px; margin-top:10px;">
+          <a class="filter-btn" href="https://www.google.com/maps/dir/?api=1&destination=19.230,-70.529" target="_blank" rel="noopener">Abrir en Google Maps</a>
+          <a class="filter-btn" href="tel:+18091234567">Llamar ahora</a>
+        </div>
+
+        <div style="margin-top:12px;">
+          <small class="muted">Áreas de cobertura</small>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
+            <span class="tag">La Vega</span>
+            <span class="tag">Jarabacoa</span>
+            <span class="tag">Santiago</span>
+            <span class="tag">Zona norte</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Light Guard. Todos los derechos reservados.</p>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <img src="imagenes/Light Guard.png" alt="Logo" style="width:72px; border-radius:8px; margin-bottom:8px;">
+        <div style="font-weight:700">Light Guard</div>
+        <div class="muted" style="font-size:.95rem">Tegnologia y reparaciones • La Vega</div>
+      </div>
+
+      <div class="footer-col">
+        <strong>Enlaces</strong>
+        <div style="margin-top:8px;">
+          <a href="#servicios">Servicios</a><br>
+          <a href="#casos">Casos</a><br>
+          <a href="#trabajos">Trabajos</a><br>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <strong>Contacto</strong>
+        <div style="margin-top:8px;" class="muted">
+          Tel: <a href="tel:+18091234567">+1 809 123 4567</a><br>
+          WhatsApp: <a href="https://wa.me/18091234567">+1 809 123 4567</a><br>
+          Email: <a href="mailto:info@lightguard.com">info@lightguard.com</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <strong>Síguenos</strong>
+        <div class="socials" style="margin-top:8px;">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:18px; color:rgba(255,255,255,0.8); font-size:.95rem;">
+      © 2025 Light Guard. Todos los derechos reservados.
+    </div>
   </footer>
+
+  <!-- Floating actions -->
+  <div class="floating" aria-hidden="false">
+    <a class="fab whatsapp" href="https://wa.me/18091234567" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a class="fab call" href="tel:+18091234567" aria-label="Llamar"><i class="fa-solid fa-phone"></i></a>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Init AOS
+    AOS.init({ duration: 700, once: true, offset: 80 });
+
+    // MENU TOGGLE (mobile)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainMenu = document.querySelector('.main-menu');
+    menuToggle?.addEventListener('click', () => {
+      if (mainMenu.style.display === 'flex') mainMenu.style.display = 'none';
+      else mainMenu.style.display = 'flex';
+    });
+
+    // CASES SLIDER (simple) - draggable + controls
+    const track = document.getElementById('cases-track');
+    let pos = 0;
+    const itemWidth = 334; // approx width incl gap; adjust if needed
+
+    function slideCases(dir){
+      pos += dir * itemWidth;
+      const max = Math.max(0, track.scrollWidth - track.parentElement.clientWidth);
+      if (pos < 0) pos = 0;
+      if (pos > max) pos = max;
+      track.style.transform = `translateX(-${pos}px)`;
+    }
+
+    // DRAG TO SLIDE
+    let isDown = false, startX, scrollLeft;
+    track.parentElement.addEventListener('mousedown', (e) => {
+      isDown = true; startX = e.pageX - track.parentElement.offsetLeft; track.parentElement.style.cursor = 'grabbing';
+      scrollLeft = pos;
+    });
+    window.addEventListener('mouseup', () => { isDown = false; track.parentElement.style.cursor = 'default'; });
+    track.parentElement.addEventListener('mousemove', (e) => {
+      if(!isDown) return;
+      const x = e.pageX - track.parentElement.offsetLeft;
+      const walk = (x - startX) * 1.2;
+      pos = Math.max(0, Math.min(track.scrollWidth - track.parentElement.clientWidth, scrollLeft - walk));
+      track.style.transform = `translateX(-${pos}px)`;
+    });
+
+    // FILTERS
+    function filterCases(cat){
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.filter-btn').forEach(b=>{ if(b.dataset.filter === cat) b.classList.add('active'); if(cat==='all' && b.dataset.filter==='all') b.classList.add('active');});
+      const items = document.querySelectorAll('.case-item');
+      items.forEach(it=>{
+        if(cat === 'all' || it.dataset.category === cat) it.style.display = 'block'; else it.style.display='none';
+      });
+      // reset scroll
+      pos = 0; track.style.transform = `translateX(0px)`;
+    }
+
+    // Modal: abrir detalle proyecto
+    const caseModal = document.getElementById('case-modal');
+    const modalGallery = document.getElementById('modal-gallery');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+
+    function openCaseModal(caseElem){
+      // read data attributes
+      const title = caseElem.dataset.title || 'Proyecto';
+      const desc = caseElem.dataset.desc || '';
+      const before = caseElem.dataset.before;
+      const after = caseElem.dataset.after;
+
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+
+      // create gallery
+      modalGallery.innerHTML = '';
+      const imgBefore = document.createElement('img'); imgBefore.src = before || 'imagenes/instalacion de aire.jpg'; imgBefore.alt='Antes'; imgBefore.style.width='100%'; imgBefore.style.borderRadius='8px';
+      const imgAfter = document.createElement('img'); imgAfter.src = after || before || 'imagenes/instalacion de aire.jpg'; imgAfter.alt='Después'; imgAfter.style.width='100%'; imgAfter.style.borderRadius='8px';
+      modalGallery.appendChild(imgBefore);
+      modalGallery.appendChild(imgAfter);
+
+      caseModal.classList.add('show');
+      caseModal.setAttribute('aria-hidden','false');
+    }
+
+    function closeCaseModal(){
+      caseModal.classList.remove('show');
+      caseModal.setAttribute('aria-hidden','true');
+    }
+
+    // Antes / Después modal
+    const baModal = document.getElementById('before-after-modal');
+    const baBefore = document.getElementById('ba-before');
+    const baAfter = document.getElementById('ba-after');
+
+    function openBeforeAfter(beforeSrc, afterSrc){
+      baBefore.src = beforeSrc;
+      baAfter.src = afterSrc;
+      baModal.classList.add('show');
+      baModal.setAttribute('aria-hidden','false');
+    }
+    function closeBeforeAfter(){ baModal.classList.remove('show'); baModal.setAttribute('aria-hidden','true'); }
+
+    function downloadImage(id){
+      const img = document.getElementById(id);
+      const link = document.createElement('a');
+      link.href = img.src;
+      link.download = img.src.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+
+    // Contact form (simple demo; replace with integration)
+    function submitContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+
+      const result = document.getElementById('contact-result');
+      result.innerHTML = '<span style="color:green;font-weight:700">Enviando...</span>';
+
+      // Simular envío (aquí iría Fetch a tu servidor o API)
+      setTimeout(()=>{
+        result.innerHTML = '<span style="color:green;font-weight:700">Mensaje enviado. Nos pondremos en contacto pronto.</span>';
+        document.getElementById('contactForm').reset();
+      }, 900);
+    }
+
+    // Open directions (Google Maps) with coordinates
+    function openDirections(){
+      // coords por defecto (La Vega) - reemplaza si tienes coords exactos
+      const lat = 19.2324; const lng = -70.5298;
+      const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+      window.open(url, '_blank');
+    }
+
+    // Accessibility: close modals with Esc
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape'){
+        closeCaseModal();
+        closeBeforeAfter();
+      }
+    });
+
+    // Simple defensive: ensure track width recalculated on resize
+    window.addEventListener('resize', ()=> {
+      pos = 0; track.style.transform = `translateX(0px)`;
+    });
+
+    // Initialize filters initially
+    filterCases('all');
+
+  </script>
 </body>
 </html>
