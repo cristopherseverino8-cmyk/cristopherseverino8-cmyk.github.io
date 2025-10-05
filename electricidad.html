@@ -261,6 +261,237 @@ a { color:var(--accent); text-decoration:none; }
     .center { text-align:center; }
     .mb-8{ margin-bottom:20px; }
 
+        /* =====================================================
+   ADAPTABILIDAD PARA TELÉFONOS, TABLETS Y PANTALLAS GRANDES
+   ===================================================== */
+
+/* ---------------------------
+   Menú hamburguesa y header responsive
+   --------------------------- */
+@media (max-width: 900px) {
+  nav .main-menu {
+    display: none;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgba(1,38,57,0.98), rgba(0,95,115,0.98));
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 18px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    z-index: 1000;
+  }
+  nav .main-menu.show {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .cta-top {
+    display: none;
+  }
+}
+
+/* ---------------------------
+   Hero responsive
+   --------------------------- */
+@media (max-width: 880px) {
+  .hero {
+    grid-template-columns: 1fr;
+    height: auto;
+    text-align: center;
+    padding: 20px;
+  }
+  .hero .right {
+    order: -1;
+    margin-bottom: 16px;
+  }
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero .hero-cta {
+    justify-content: center;
+  }
+}
+
+/* ---------------------------
+   Servicios responsive
+   --------------------------- */
+@media (max-width: 719px) {
+  .service-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .service-card i {
+    font-size: 2rem;
+  }
+}
+
+/* ---------------------------
+   Casos de éxito (slider) responsive
+   --------------------------- */
+@media (max-width: 720px) {
+  .cases-track {
+    padding: 8px 10px;
+  }
+  .case-item {
+    min-width: 85%;
+    max-width: 90%;
+  }
+}
+
+/* ---------------------------
+   Videos responsive
+   --------------------------- */
+@media (max-width: 699px) {
+  .video-card video {
+    height: auto;
+  }
+}
+
+/* ---------------------------
+   Testimonios responsive
+   --------------------------- */
+@media (max-width: 899px) {
+  .testimonial {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* ---------------------------
+   FAQ responsive
+   --------------------------- */
+@media (max-width: 700px) {
+  .faq details {
+    font-size: 0.95rem;
+  }
+}
+
+/* ---------------------------
+   Contacto y ubicación responsive
+   --------------------------- */
+@media (max-width: 799px) {
+  .contact-location {
+    grid-template-columns: 1fr;
+  }
+  .contact-form .row {
+    grid-template-columns: 1fr;
+  }
+  .map-frame {
+    height: 280px;
+  }
+  .place-info {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ---------------------------
+   Footer responsive
+   --------------------------- */
+@media (max-width: 700px) {
+  footer {
+    text-align: center;
+  }
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .footer-col {
+    min-width: auto;
+  }
+  .socials a {
+    margin: 0 6px;
+  }
+}
+
+/* ---------------------------
+   Botones flotantes responsive
+   --------------------------- */
+@media (max-width: 480px) {
+  .floating {
+    right: 12px;
+    bottom: 12px;
+    gap: 8px;
+  }
+  .fab {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+/* =====================================================
+   Adaptabilidad para pantallas grandes (>1200px)
+   ===================================================== */
+@media (min-width: 1200px) {
+
+  /* Layout principal */
+  .container {
+    max-width: 1400px;
+    padding: 0 40px;
+  }
+
+  /* Hero */
+  .hero {
+    grid-template-columns: 1fr 520px;
+    gap: 36px;
+    padding: 40px;
+  }
+  .hero h2 {
+    font-size: 2.8rem;
+  }
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  /* Servicios grid */
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Casos de éxito */
+  .case-item {
+    min-width: 340px;
+    max-width: 360px;
+  }
+
+  /* Videos */
+  .videos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Testimonios */
+  .testimonials {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Contacto & Location */
+  .contact-location {
+    grid-template-columns: 1fr 520px;
+  }
+  .contact-form .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer */
+  .footer-inner {
+    justify-content: space-between;
+    gap: 24px;
+  }
+}
   </style>
 </head>
 <body>
