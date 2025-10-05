@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Light Guard — Inicio</title>
+  <title>Light Guard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Light Guard - Soluciones integrales en Tecnología, Electricidad y Refrigeración. Certificados, confiables y con soporte 24/7." />
   <meta name="author" content="Light Guard" />
@@ -22,7 +22,7 @@
 
   <style>
     /* =========================
-       Variables & Reset
+      Variables & Reset
        ========================= */
     :root{
       --bg:#eef6fb;
@@ -54,7 +54,7 @@
     img{ display:block; max-width:100%; height:auto }
 
     /* =========================
-       Header
+      Header
        ========================= */
     header{
       position:fixed;
@@ -93,7 +93,7 @@
     .container{ max-width:1200px; margin:36px auto; padding:0 20px; }
 
     /* =========================
-       Hero
+      Hero
        ========================= */
     .hero{
       height:70vh; min-height:420px;
@@ -132,7 +132,7 @@
     .contact-card small{ color: rgba(255,255,255,0.85); font-weight:700 }
 
     /* =========================
-       Services grid
+      Red de servicios 
        ========================= */
     .section-title{ display:flex; align-items:center; gap:12px; margin-bottom:18px; }
     .section-title h3{ margin:0; color:var(--primary); font-size:1.45rem; }
@@ -157,7 +157,7 @@
     @media(min-width:1100px){ .services-grid{ grid-template-columns: repeat(3, 1fr);} }
 
     /* =========================
-       Projects slider (simple)
+      Projects slider (simple)
        ========================= */
     .cases-wrap{ margin-top:28px; max-width:1200px; margin-left:auto; margin-right:auto; padding:0 20px; }
     .cases-top{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap; }
@@ -179,7 +179,7 @@
     .ctrl-btn{ background:#fff; border-radius:8px; padding:8px; border:1px solid rgba(2,6,23,0.06); cursor:pointer; }
 
     /* =========================
-       Before/after modal
+      Before/after modal
        ========================= */
     .modal-backdrop{ position:fixed; inset:0; background:rgba(2,6,23,0.6); display:flex; align-items:center; justify-content:center; z-index:2500; opacity:0; visibility:hidden; transition:.22s; }
     .modal-backdrop.show{ opacity:1; visibility:visible; }
@@ -189,7 +189,7 @@
     .close-modal{ position:absolute; top:14px; right:18px; background:transparent; border:none; color:#fff; font-size:1.2rem; cursor:pointer; }
 
     /* =========================
-       Videos, Testimonials
+      Videos, Testimonials
        ========================= */
     .videos-grid{ display:grid; gap:14px; grid-template-columns: repeat(1, 1fr); margin-top:18px; max-width:1200px; margin-left:auto; margin-right:auto; padding:0 20px; }
     @media(min-width:700px){ .videos-grid{ grid-template-columns: repeat(2, 1fr);} }
@@ -199,14 +199,14 @@
     @media(min-width:900px){ .testimonials{ grid-template-columns: repeat(2, 1fr); } }
 
     /* =========================
-       FAQ
+      FAQ
        ========================= */
     .faq{ margin-top:22px; display:grid; gap:10px; max-width:920px; margin-left:auto; margin-right:auto; padding:0 20px; }
     .faq details{ background:var(--card); padding:12px 16px; border-radius:10px; box-shadow:var(--shadow-sm); cursor:pointer; }
     .faq summary{ font-weight:700; outline:none; }
 
     /* =========================
-       Contact & Location - Enhanced
+      Contact & Location - Enhanced
        ========================= */
     .contact-location{ margin-top:28px; display:grid; gap:18px; grid-template-columns: 1fr; max-width:1200px; margin-left:auto; margin-right:auto; padding:0 20px; }
     @media(min-width:900px){ .contact-location{ grid-template-columns: 1fr 420px; } }
@@ -236,7 +236,7 @@
     .location-row strong{ font-size:1.05rem }
 
     /* =========================
-       Footer & Floating actions
+      Footer & Floating actions
        ========================= */
     footer{ margin-top:36px; padding:28px 18px; background:linear-gradient(180deg,var(--dark), #002f4b); color:white; border-top-left-radius:12px; border-top-right-radius:12px; }
     .footer-inner{ max-width:1200px; margin:0 auto; display:flex; gap:20px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; padding:8px 18px; }
@@ -248,7 +248,7 @@
     .fab.call{ background:var(--primary) }
 
     /* =========================
-       Micro animations & helpers
+      Micro animations & helpers
        ========================= */
     .fade-up{ opacity:0; transform: translateY(10px); animation: fadeUp .7s ease forwards; }
     @keyframes fadeUp{ to{ opacity:1; transform: translateY(0); } }
@@ -273,6 +273,484 @@
       .hero h2{ font-size:1.6rem }
       .hero p{ font-size:1rem }
     }
+    /* ---------------------------
+      Restablecer y base 
+       --------------------------- */
+    :root{
+      --bg:#f4f9fb;
+      --dark-blue:#001d3d;
+      --primary:#0077b6;
+      --accent:#00b4d8;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --radius:12px;
+      --glass: rgba(255,255,255,0.6);
+      --shadow: 0 6px 20px rgba(2,6,23,0.08);
+    }
+    * { box-sizing: border-box; }
+    html,body { height:100%; }
+    body {
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg,#f6fbfd 0%, #e9f4f8 100%);
+      color: #1f2937;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      -webkit-tap-highlight-color: transparent;
+    }
+    a { color:var(--accent); text-decoration:none; }
+    img { max-width:100%; display:block; }
+    button { font-family:inherit; }
+
+    /* ---------------------------
+      Header
+       --------------------------- */
+    header {
+      position: sticky;
+      top:0;
+      z-index:1200;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(90deg, rgba(1,38,57,0.95), rgba(0,95,115,0.95));
+      padding:12px 28px;
+      box-shadow: 0 6px 20px rgba(2,6,23,0.18);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .logo-container{ display:flex; align-items:center; gap:12px; }
+    .logo-container img{
+      width:50px; height:50px; border-radius:10px; object-fit:cover;
+      transition: transform .6s ease, filter .3s ease;
+      cursor:pointer;
+    }
+    .logo-container img:hover{ transform:scale(1.08) rotate(10deg); filter:drop-shadow(0 6px 18px rgba(0,180,216,0.2)); }
+    .logo-container h1{ margin:0; color:#fff; font-size:1.25rem; letter-spacing:0.4px; }
+    nav { display:flex; align-items:center; gap:18px; }
+    nav .main-menu { list-style:none; margin:0; padding:0; display:flex; gap:18px; align-items:center;}
+    nav .main-menu li a {
+      color: #e6eef1; padding:8px 12px; border-radius:8px; font-weight:600; font-size:.95rem;
+      transition:.18s;
+    }
+    nav .main-menu li a:hover{ color: #fff; background: rgba(255,255,255,0.02); box-shadow: inset 0 -2px 0 rgba(255,255,255,0.02); transform:translateY(-2px); }
+    .cta-top { background: linear-gradient(90deg,var(--accent),var(--primary)); color:white; padding:10px 14px; border-radius:10px; font-weight:700; box-shadow:var(--shadow); border:none; cursor:pointer; }
+    .menu-toggle { display:none; background:none; border:none; color:#fff; font-size:1.4rem; }
+
+    /* layout */
+    .container { max-width:1200px; margin:40px auto; padding:0 20px; }
+
+    /* ---------------------------
+      Hero
+       --------------------------- */
+    .hero {
+      height:70vh;
+      border-radius:18px;
+      margin:18px auto;
+      position:relative;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:24px;
+      align-items:center;
+      padding:28px;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.18)),
+        url('imagenes/hero-refrigeracion.jpg') center/cover no-repeat;
+      color:white;
+    }
+    .hero .left { padding:8px 12px; max-width:720px; }
+    .hero h2 { font-size:2.4rem; line-height:1.05; margin:0 0 12px; text-shadow: 0 10px 30px rgba(0,0,0,0.45); }
+    .hero p { margin:0 0 18px; color:rgba(255,255,255,0.95); font-size:1.05rem; }
+    .hero .hero-cta { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .btn-primary {
+      background: linear-gradient(90deg,var(--accent),var(--primary));
+      padding:12px 18px; color:white; border-radius:10px; border:none; font-weight:700; cursor:pointer;
+      box-shadow: 0 8px 30px rgba(0,119,182,0.18);
+      transition: transform .15s ease;
+    }
+    .btn-primary:hover{ transform: translateY(-4px); }
+    .btn-outline { background:transparent; color:white; padding:10px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); font-weight:600; }
+
+    .hero .right {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.05));
+      padding:14px; border-radius:12px; backdrop-filter: blur(4px);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.2);
+      color:#fff;
+    }
+    .hero .contact-card { display:flex; flex-direction:column; gap:8px; }
+    .contact-row { display:flex; gap:8px; align-items:center; justify-content:space-between; }
+    .contact-row small { color:rgba(255,255,255,0.85); font-weight:600; }
+    .contact-big { font-size:1.1rem; font-weight:700; color:white; }
+
+    /* ---------------------------
+      Services grid
+       --------------------------- */
+    .section-title { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+    .section-title h3 { margin:0; color:var(--primary); }
+    .services-grid {
+      display:grid; gap:18px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .service-card {
+      background:var(--card); padding:18px; border-radius:var(--radius);
+      box-shadow: var(--shadow); display:flex; gap:12px; align-items:flex-start; transition:.22s;
+    }
+    .service-card:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(2,6,23,0.08); }
+    .service-card i { font-size:1.7rem; color:var(--primary); width:40px; text-align:center; }
+    .service-card h4{ margin:0 0 6px 0; font-size:1.05rem; }
+    .service-card p{ margin:0; color:var(--muted); font-size:.95rem; }
+
+    @media(min-width:720px){ .services-grid{ grid-template-columns: repeat(2, 1fr);} }
+    @media(min-width:1100px){ .services-grid{ grid-template-columns: repeat(3, 1fr);} }
+
+    /* ---------------------------
+      Casos de éxito (slider + filtros + modal)
+       --------------------------- */
+    .cases-wrap { margin-top:28px; }
+    .cases-top { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap; }
+    .filters { display:flex; gap:8px; flex-wrap:wrap; }
+    .filter-btn { padding:8px 12px; border-radius:999px; border:1px solid rgba(1,38,57,0.06); background:white; font-weight:600; cursor:pointer; }
+    .filter-btn.active { background: linear-gradient(90deg,var(--accent),var(--primary)); color:#fff; border:none; box-shadow: 0 8px 24px rgba(0,119,182,0.12); }
+
+    /* slider */
+    .cases-slider { position:relative; display:flex; gap:14px; overflow:hidden; align-items:center; }
+    .cases-track { display:flex; gap:14px; transition: transform .5s cubic-bezier(.22,.9,.35,1); padding:8px 30px; }
+    .case-item {
+      min-width:300px; max-width:320px; background:var(--card); border-radius:12px; box-shadow:var(--shadow);
+      overflow:hidden; cursor:grab; transition:.18s;
+    }
+    .case-item:hover{ transform: translateY(-6px); }
+    .case-media { height:200px; overflow:hidden; }
+    .case-media img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s; }
+    .case-body { padding:12px; }
+    .case-tags { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
+    .tag { background: #eef8fb; color:var(--primary); padding:6px 8px; border-radius:8px; font-weight:600; font-size:.85rem; }
+
+    .slider-controls { display:flex; gap:10px; align-items:center; }
+    .ctrl-btn { background:#fff; border-radius:8px; padding:8px; border:1px solid rgba(2,6,23,0.06); cursor:pointer; }
+    .ctrl-btn:active{ transform:scale(.98); }
+
+    /* modal detalle proyecto */
+    .modal-backdrop { position:fixed; inset:0; background:rgba(2,6,23,0.6); display:flex; align-items:center; justify-content:center; z-index:1500; opacity:0; visibility:hidden; transition:.2s; }
+    .modal-backdrop.show{ opacity:1; visibility:visible; }
+    .modal { width:92%; max-width:980px; background:var(--card); border-radius:14px; overflow:hidden; box-shadow:0 40px 80px rgba(2,6,23,0.4); display:grid; grid-template-columns: 1fr 420px; }
+    .modal .gallery { display:grid; gap:8px; padding:18px; }
+    .modal .info { padding:18px; background:linear-gradient(180deg,#f9fcff,#f1fbff); }
+    .modal h4{ margin:6px 0 8px 0; }
+    .modal p{ margin:6px 0; color:var(--muted); }
+    .close-modal { position:absolute; top:14px; right:18px; background:transparent; border:none; color:#fff; font-size:1.2rem; cursor:pointer; }
+
+    /* ---------------------------
+      Trabajos realizados (videos grid + lightbox)
+       --------------------------- */
+    .videos-grid { display:grid; gap:14px; grid-template-columns: repeat(1, 1fr); margin-top:18px; }
+    .video-card { background:var(--card); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); }
+    .video-card video { width:100%; height:auto; display:block; }
+    @media(min-width:700px){ .videos-grid{ grid-template-columns: repeat(2, 1fr);} }
+    @media(min-width:1100px){ .videos-grid{ grid-template-columns: repeat(3, 1fr);} }
+
+    /* ---------------------------
+      Testimonios
+       --------------------------- */
+    .testimonials { margin-top:28px; display:grid; gap:12px; grid-template-columns:1fr; }
+    .testimonial { background:linear-gradient(180deg,#fff,#f7fbff); border-radius:12px; padding:16px; box-shadow:var(--shadow); display:flex; gap:12px; align-items:flex-start; }
+    .avatar { width:60px; height:60px; border-radius:12px; overflow:hidden; flex-shrink:0; }
+    .stars { color:#ffb020; font-weight:800; }
+
+    @media(min-width:900px){ .testimonials{ grid-template-columns: repeat(2, 1fr); } }
+
+    /* ---------------------------
+      FAQ
+       --------------------------- */
+    .faq { margin-top:22px; display:grid; gap:10px; }
+    .faq details { background:var(--card); padding:12px 16px; border-radius:10px; box-shadow:var(--shadow); cursor:pointer; }
+    .faq summary { font-weight:700; outline:none; }
+
+    /* ---------------------------
+      Contact & Location
+       --------------------------- */
+    .contact-location { margin-top:28px; display:grid; gap:18px; grid-template-columns: 1fr; }
+    .contact-form { background:var(--card); padding:18px; border-radius:12px; box-shadow:var(--shadow); }
+    .contact-form form { display:grid; gap:10px; }
+    .contact-form input, .contact-form textarea, .contact-form select {
+      padding:12px; border-radius:10px; border:1px solid #e6eef1; font-size:1rem; width:100%;
+    }
+    .contact-form .row { display:grid; gap:10px; grid-template-columns: 1fr; }
+    @media(min-width:800px){ .contact-location{ grid-template-columns: 1fr 420px; } .contact-form .row{ grid-template-columns: repeat(2, 1fr);} }
+
+    .map-card { background:linear-gradient(180deg,#fff,#fbfeff); border-radius:12px; padding:12px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:12px; }
+    .map-frame { width:100%; height:320px; border-radius:10px; overflow:hidden; box-shadow:inset 0 -6px 30px rgba(0,0,0,0.06); }
+
+    .place-info { display:flex; gap:12px; align-items:center; justify-content:space-between; }
+    .place-info .left { display:flex; gap:10px; align-items:center; }
+    .place-info img{ width:70px; height:70px; border-radius:10px; object-fit:cover; }
+    .place-actions { display:flex; gap:10px; align-items:center; }
+    .small-btn { padding:8px 10px; border-radius:10px; border:none; font-weight:700; cursor:pointer; }
+    .btn-whatsapp { background:#25d366; color:white; }
+    .btn-call { background:var(--primary); color:white; }
+
+    /* ---------------------------
+      Footer
+       --------------------------- */
+    footer { margin-top:36px; padding:28px 18px; background:linear-gradient(180deg,var(--dark-blue), #002f4b); color:white; border-top-left-radius:12px; border-top-right-radius:12px; }
+    .footer-inner { max-width:1200px; margin:0 auto; display:flex; gap:20px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; padding:8px 18px; }
+    .footer-col { min-width:180px; }
+    .socials a{ display:inline-block; margin-right:8px; color:white; font-size:1.2rem; }
+
+    /* ---------------------------
+      Floating actions (WhatsApp & Call)
+       --------------------------- */
+    .floating {
+      position:fixed; bottom:18px; right:18px; display:flex; gap:10px; flex-direction:column; z-index:1400;
+    }
+    .fab {
+      width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:1.4rem; box-shadow:0 10px 30px rgba(2,6,23,0.18); cursor:pointer;
+    }
+    .fab.whatsapp { background:#25d366; }
+    .fab.call { background:var(--primary); }
+
+    /* ---------------------------
+      Utilities
+       --------------------------- */
+    .muted { color:var(--muted); }
+    .center { text-align:center; }
+    .mb-8{ margin-bottom:20px; }
+    /*
+    Adaptabilidad menu  
+    */
+    /* =====================================================
+   ADAPTABILIDAD PARA TELÉFONOS, TABLETS Y PANTALLAS GRANDES
+   ===================================================== */
+
+/* ---------------------------
+   Menú hamburguesa y header responsive
+   --------------------------- */
+@media (max-width: 900px) {
+  nav .main-menu {
+    display: none;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgba(1,38,57,0.98), rgba(0,95,115,0.98));
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 18px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    z-index: 1000;
+  }
+  nav .main-menu.show {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .cta-top {
+    display: none;
+  }
+}
+
+/* ---------------------------
+   Hero responsive
+   --------------------------- */
+@media (max-width: 880px) {
+  .hero {
+    grid-template-columns: 1fr;
+    height: auto;
+    text-align: center;
+    padding: 20px;
+  }
+  .hero .right {
+    order: -1;
+    margin-bottom: 16px;
+  }
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero .hero-cta {
+    justify-content: center;
+  }
+}
+
+/* ---------------------------
+   Servicios responsive
+   --------------------------- */
+@media (max-width: 719px) {
+  .service-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .service-card i {
+    font-size: 2rem;
+  }
+}
+
+/* ---------------------------
+   Casos de éxito (slider) responsive
+   --------------------------- */
+@media (max-width: 720px) {
+  .cases-track {
+    padding: 8px 10px;
+  }
+  .case-item {
+    min-width: 85%;
+    max-width: 90%;
+  }
+}
+
+/* ---------------------------
+   Videos responsive
+   --------------------------- */
+@media (max-width: 699px) {
+  .video-card video {
+    height: auto;
+  }
+}
+
+/* ---------------------------
+   Testimonios responsive
+   --------------------------- */
+@media (max-width: 899px) {
+  .testimonial {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* ---------------------------
+   FAQ responsive
+   --------------------------- */
+@media (max-width: 700px) {
+  .faq details {
+    font-size: 0.95rem;
+  }
+}
+
+/* ---------------------------
+   Contacto y ubicación responsive
+   --------------------------- */
+@media (max-width: 799px) {
+  .contact-location {
+    grid-template-columns: 1fr;
+  }
+  .contact-form .row {
+    grid-template-columns: 1fr;
+  }
+  .map-frame {
+    height: 280px;
+  }
+  .place-info {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ---------------------------
+   Footer responsive
+   --------------------------- */
+@media (max-width: 700px) {
+  footer {
+    text-align: center;
+  }
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .footer-col {
+    min-width: auto;
+  }
+  .socials a {
+    margin: 0 6px;
+  }
+}
+
+/* ---------------------------
+   Botones flotantes responsive
+   --------------------------- */
+@media (max-width: 480px) {
+  .floating {
+    right: 12px;
+    bottom: 12px;
+    gap: 8px;
+  }
+  .fab {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+/* =====================================================
+   Adaptabilidad para pantallas grandes (>1200px)
+   ===================================================== */
+@media (min-width: 1200px) {
+
+  /* Layout principal */
+  .container {
+    max-width: 1400px;
+    padding: 0 40px;
+  }
+
+  /* Hero */
+  .hero {
+    grid-template-columns: 1fr 520px;
+    gap: 36px;
+    padding: 40px;
+  }
+  .hero h2 {
+    font-size: 2.8rem;
+  }
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  /* Servicios grid */
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Casos de éxito */
+  .case-item {
+    min-width: 340px;
+    max-width: 360px;
+  }
+
+  /* Videos */
+  .videos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Testimonios */
+  .testimonials {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Contacto & Location */
+  .contact-location {
+    grid-template-columns: 1fr 520px;
+  }
+  .contact-form .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer */
+  .footer-inner {
+    justify-content: space-between;
+    gap: 24px;
+  }
+}
   </style>
 </head>
 <body>
@@ -288,6 +766,7 @@
       <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
 
       <ul class="main-menu" role="menubar" aria-hidden="false">
+        <li role="none"><a role="menuitem" href="index.html"><i class="fa-solid fa-gear"></i> Inicio</a></li>
         <li role="none"><a role="menuitem" href="#servicios"><i class="fa-solid fa-gear"></i> Servicios</a></li>
         <li role="none"><a role="menuitem" href="#proyectos"><i class="fa-solid fa-briefcase"></i> Proyectos</a></li>
         <li role="none"><a role="menuitem" href="#testimonios"><i class="fa-solid fa-star"></i> Testimonios</a></li>
@@ -303,7 +782,7 @@
   <main class="container" role="main">
     <section class="hero" role="banner" aria-label="Hero - Light Guard" data-aos="fade-up">
       <div class="left">
-        <h2>Tu confort y seguridad, nuestra prioridad ❄️🔧</h2>
+        <h2>Tu confort y seguridad, nuestra prioridad bienvenido a Light Guard</h2>
         <p>Instalación, mantenimiento y reparación profesional de sistemas de refrigeración, climatización y electricidad para hogares, comercios e industria. Atención rápida, garantía y técnicos certificados.</p>
 
         <div class="hero-cta" aria-hidden="false">
